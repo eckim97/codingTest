@@ -15,7 +15,7 @@ public class Main {
             arr[c - 97]++;
         }
         for (int i = 0; i < 26; i++) {
-            System.out.print(arr[i] + " ");
+            System.out.print(arr[i] + " "); //sdafsadf
         }
     }
 }
