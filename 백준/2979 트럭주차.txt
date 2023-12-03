@@ -1,0 +1,46 @@
+package com.example.codingtest;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        int arr[] = new int[100];
+        int start;
+        int end;
+        int min = 0;
+        int max = 0;
+        int sum = 0;
+
+        for (int i = 0; i < 3; i++) {
+            start = sc.nextInt();
+            end = sc.nextInt();
+            min = Math.min(min, start);
+            max = Math.max(max, end);
+
+            for (int j = start; j < end; j++){
+                arr[j]++;
+            }
+        }
+
+        for (int i = min; i < max; i++) {
+            switch (arr[i]){
+                case 1:
+                    sum = sum + a * arr[i];
+                    break;
+                case 2:
+                    sum = sum + b * arr[i];
+                    break;
+                case 3:
+                    sum = sum + c * arr[i];
+                    break;
+            }
+        }
+        System.out.println(sum);
+    }
+}
