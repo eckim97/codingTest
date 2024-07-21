@@ -12,7 +12,7 @@ public class Main {
 
             int[] dp = new int[N + 1];
 
-            if (N >= 2) dp[2] = 3;
+            dp[2] = 3;
 
             for(int i = 4; i <= N; i += 2) {
                 dp[i] = dp[i-2] * 3;
