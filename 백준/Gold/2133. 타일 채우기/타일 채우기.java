@@ -9,19 +9,13 @@ public class Main {
             System.out.println(0);
             return;
         }
-        
-        if (N == 0) {
-            System.out.println(1);
-            return;
-        }
 
         int[] dp = new int[N + 1];
-
         dp[2] = 3;
 
         for(int i = 4; i <= N; i += 2) {
-            dp[i] = dp[i-2] * 3;
-            for(int j = i-4; j >= 0; j-=2) {
+            dp[i] = dp[i-2] * dp[2];
+            for(int j = i-4; j > 0; j-=2) {
                 dp[i] += dp[j] * 2;
             }
             dp[i] += 2;
@@ -29,7 +23,3 @@ public class Main {
         System.out.println(dp[N]);
     }
 }
-
-
-
-
