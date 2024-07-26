@@ -6,35 +6,34 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int T = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
         int cnt = 0;
 
-        for (int n = 0; n < T; n++) {
+        for (int i = 0; i < N; i++) {
             String str = br.readLine();
-            if(includeWord(str)){
-                cnt ++;
+
+            HashSet<Character> current = new HashSet<>();
+            char last = '0';
+            boolean includeWord = true;
+
+            for (int j = 0; j < str.length(); j++) {
+                char crr = str.charAt(j);
+
+
+                if (crr != last) {
+                    if (current.contains(crr)) {
+                        includeWord = false;
+                        break;
+                    }
+                    current.add(crr);
+                    last = crr;
+                }
+            }
+            if (includeWord) {
+                cnt++;
             }
         }
         System.out.println(cnt);
-    }
-
-    public static boolean includeWord(String str) {
-        HashSet<Character> crr = new HashSet<>();
-        char last = '0';
-        boolean includeWord = true;
-
-        for (int i = 0; i < str.length(); i++) {
-            char current = str.charAt(i);
-            if (current != last) {
-                if (crr.contains(current)) {
-                    includeWord = false;
-                    break;
-                }
-                crr.add(current);
-                last = current;
-            }
-        }
-        return includeWord;
     }
 }
 
