@@ -1,36 +1,44 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
-        HashMap<Integer, List<String>> map = new HashMap<>();
+        int n = Integer.parseInt(br.readLine());
+        Person[] person = new Person[n];
 
         for (int i = 0; i < n; i++) {
-            String[] input = br.readLine().split(" ");
-            int age = Integer.parseInt(input[0]);
-            String name = input[1];
-
-            if (!map.containsKey(age)) {
-                map.put(age, new ArrayList<>());
-            }
-            map.get(age).add(name);
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            person[i] = new Person(Integer.parseInt(st.nextToken()), st.nextToken());
         }
 
-        List<Integer> key = new ArrayList<>(map.keySet());
-        Collections.sort(key);
+        Arrays.sort(person, (a, b) -> {
+            return a.age - b.age;
+        });
 
-        for (Integer age : key) {
-            for (String name : map.get(age)) {
-                System.out.println(age + " " + name);
-            }
+        for (int i = 0; i < n; i++) {
+            sb.append(person[i]).append("\n");
+        }
+        
+        System.out.println(sb.toString());
+    }
+
+    static class Person{
+        int age;
+        String name;
+
+        public Person(int age, String name) {
+            this.age = age;
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return age + " " + name;
         }
     }
 }
