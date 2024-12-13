@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[26];
+        int n = sc.nextInt();
+        String buffer = sc.nextLine();
+
+        boolean possible = false;
+
+        for (int i = 0; i < n; i++) {
+            String name = sc.nextLine();
+            char c = name.charAt(0);
+            arr[c - 97]++;
+        }
+
+        for (int i = 0; i < 26; i++) {
+            if (arr[i] >= 5) {
+                System.out.print((char) (i + 97));
+                possible = true;
+            }
+        }
+        if(possible == false) {
+            System.out.println("PREDAJA");
+        }
+    }
+}
