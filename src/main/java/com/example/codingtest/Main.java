@@ -3,28 +3,19 @@ package com.example.codingtest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
 
-class Main {
+public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int A = Integer.parseInt(br.readLine());
-
-        for (int i = 1; i <= A; i++) {
-            String line = br.readLine();
-            StringTokenizer st = new StringTokenizer(line);
-
-            if (st.countTokens() < 2) {
-                System.out.println("X");
-                return;
-            }
-
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-
-            System.out.println("Case #" + i + ": " + a + " + " + b + " = " + (a + b));
+        int arr[] = new int[26];
+        String word = br.readLine();
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            arr[c - 97]++;
+        }
+        for (int i = 0; i < 26; i++) {
+            System.out.print(arr[i] + " "); //sdafsadf
         }
     }
 }
-
-
