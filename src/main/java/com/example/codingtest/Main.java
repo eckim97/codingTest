@@ -3,23 +3,18 @@ package com.example.codingtest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-<<<<<<< HEAD
 import java.util.StringTokenizer;
-=======
->>>>>>> 610a5c8 (test)
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-<<<<<<< HEAD
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int C = Integer.parseInt(st.nextToken());
         int D = Integer.parseInt(st.nextToken());
 
         System.out.println(C * D);
-=======
         int n = Integer.parseInt(br.readLine());
 
         for (int i = 1; i <= n; i++) {
@@ -41,7 +36,6 @@ public class Main {
             }
             System.out.println();
         }
->>>>>>> 610a5c8 (test)
     }
 }
 
