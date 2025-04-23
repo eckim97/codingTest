@@ -1,22 +1,29 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = scanner.nextInt();
+    static int N, M;             
+    static int[][] rect;        
+    static long[][] sum;        
 
-        int arr[] = new int[12];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+
+        int[] arr = new int[11];
         arr[1] = 1;
         arr[2] = 2;
         arr[3] = 4;
 
-        for (int i = 4; i < 12; i++) {
-            arr[i] = arr[i-1] + arr[i-2] + arr[i-3];
+        for (int i = 4; i < 11; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2] + arr[i - 3];
         }
 
-        for (int i = 0; i < t; i++) {
-            int n = scanner.nextInt();
-            System.out.println(arr[n]);
+        while (n-- > 0) {
+            int x = Integer.parseInt(br.readLine());
+            System.out.println(arr[x]);
         }
+
     }
 }
