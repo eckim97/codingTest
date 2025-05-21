@@ -1,6 +1,6 @@
 # [level 0] 대문자와 소문자 - 120893 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120893) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120893?language=java) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 05월 21일 22:49:45
+2025년 05월 21일 22:49:58
 
 ### 문제 설명
 
