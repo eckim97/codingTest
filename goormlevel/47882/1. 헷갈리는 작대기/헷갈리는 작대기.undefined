@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        
+        int c1 = 0, cI = 0, cl = 0, cPipe = 0;
+        
+        for (char c : line.toCharArray()) {
+            if (c == '1') c1++;
+            else if (c == 'I') cI++;
+            else if (c == 'l') cl++;
+            else if (c == '|') cPipe++;
+        }
+        
+        System.out.println(c1);
+        System.out.println(cI);
+        System.out.println(cl);
+        System.out.println(cPipe);
+    }
+}
