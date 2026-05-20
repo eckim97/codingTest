@@ -1,0 +1,34 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine().trim());
+        StringBuilder sb = new StringBuilder();
+
+        for (int round = 0; round < N; round++) {
+            int[] cntA = count(br.readLine().trim());
+            int[] cntB = count(br.readLine().trim());
+
+            String result = "D";
+            for (int sym = 4; sym >= 1; sym--) {
+                if (cntA[sym] > cntB[sym]) { result = "A"; break; }
+                if (cntA[sym] < cntB[sym]) { result = "B"; break; }
+            }
+
+            sb.append(result).append("\n");
+        }
+        System.out.print(sb);
+    }
+
+    static int[] count(String line) {
+        StringTokenizer st = new StringTokenizer(line);
+        int k = Integer.parseInt(st.nextToken());
+        int[] cnt = new int[5]; // 인덱스 1~4 사용
+        for (int i = 0; i < k; i++) {
+            cnt[Integer.parseInt(st.nextToken())]++;
+        }
+        return cnt;
+    }
+}
