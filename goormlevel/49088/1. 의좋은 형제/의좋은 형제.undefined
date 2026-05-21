@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int jinwoo = Integer.parseInt(st.nextToken());
+        int sunwoo = Integer.parseInt(st.nextToken());
+
+        int d = Integer.parseInt(br.readLine());
+
+        for (int day = 1; day <= d; day++) {
+            if (day % 2 == 1) {
+                int give = (jinwoo + 1) / 2;
+                jinwoo -= give;
+                sunwoo += give;
+            } else {
+                int give = (sunwoo + 1) / 2;
+                sunwoo -= give;
+                jinwoo += give;
+            }
+        }
+
+        System.out.println(jinwoo + " " + sunwoo);
+    }
+}
