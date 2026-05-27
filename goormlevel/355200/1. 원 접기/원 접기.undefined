@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+
+    static long gcd(long a, long b) {
+        while (b != 0) {
+            long temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return a;
+    }
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        long AM = Long.parseLong(st.nextToken());
+        long CM = Long.parseLong(st.nextToken());
+        long BM = Long.parseLong(st.nextToken());
+
+        long numerator = AM * BM;
+        long denominator = CM;
+
+        long g = gcd(numerator, denominator);
+
+        System.out.println((numerator / g) + " " + (denominator / g));
+    }
+}
