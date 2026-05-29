@@ -1,0 +1,54 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int tableH = Integer.parseInt(st.nextToken());
+        int tableW = Integer.parseInt(st.nextToken());
+
+        st = new StringTokenizer(br.readLine());
+        int note1W = Integer.parseInt(st.nextToken());
+        int note1H = Integer.parseInt(st.nextToken());
+
+        st = new StringTokenizer(br.readLine());
+        int note2W = Integer.parseInt(st.nextToken());
+        int note2H = Integer.parseInt(st.nextToken());
+
+        int[][] note1 = {
+                {note1W, note1H},
+                {note1H, note1W}
+        };
+
+        int[][] note2 = {
+                {note2W, note2H},
+                {note2H, note2W}
+        };
+
+        boolean possible = false;
+
+        for (int[] n1 : note1) {
+            for (int[] n2 : note2) {
+                int w1 = n1[0];
+                int h1 = n1[1];
+
+                int w2 = n2[0];
+                int h2 = n2[1];
+
+                boolean sideBySide = h1 <= tableH && h2 <= tableH && w1 + w2 <= tableW;
+
+                boolean upAndDown = w1 <= tableW && w2 <= tableW && h1 + h2 <= tableH;
+
+                if (sideBySide || upAndDown) {
+                    possible = true;
+                }
+            }
+        }
+
+        System.out.println(possible ? "YES" : "NO");
+    }
+}
