@@ -1,0 +1,47 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(br.readLine());
+
+        long money = 0;
+        boolean success = true;
+
+        for (int i = 0; i < n; i++) {
+            String line = br.readLine().trim();
+
+            String type;
+            long amount;
+
+            if (line.contains(" ")) {
+                StringTokenizer st = new StringTokenizer(line);
+                type = st.nextToken();
+                amount = Long.parseLong(st.nextToken());
+            } else {
+                if (line.startsWith("in")) {
+                    type = "in";
+                    amount = Long.parseLong(line.substring(2));
+                } else {
+                    type = "out";
+                    amount = Long.parseLong(line.substring(3));
+                }
+            }
+
+            if (type.equals("in")) {
+                money += amount;
+            } else {
+                if (money < amount) {
+                    success = false;
+                } else {
+                    money -= amount;
+                }
+            }
+        }
+
+        System.out.println(success ? "success" : "fail");
+    }
+}
