@@ -1,0 +1,21 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        long c = Long.parseLong(st.nextToken()); // 빗변
+        long a = Long.parseLong(st.nextToken()); // 대변 1
+        long b = Long.parseLong(st.nextToken()); // 대변 2
+
+        long diff = a - b;
+
+        long answer = 4 * c * c - diff * diff;
+
+        System.out.println(answer);
+    }
+}
